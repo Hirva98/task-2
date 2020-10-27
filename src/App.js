@@ -18,6 +18,7 @@ const App = () => {
           <Route path="/" exact component={Home} />
           <Route path="/create" component={CreateForm} />
           <Route path="/view" component={ViewForm} />
+          {/* new */}
         </Switch>
       </BrowserRouter>
     </div>
