@@ -37,28 +37,32 @@ const CreateForm = () => {
             description: description
         }
 
-        // this is when you already have data... so you update your cookie
-        if (localStorage.getItem('users')) {
-            
-            var prevData = JSON.parse(localStorage.getItem('users'))
-            prevData[prevData.length] = data
-            localStorage.setItem('users', JSON.stringify(prevData))
+        if(data!=='')
+        {
+                // this is when you already have data... so you update your cookie
+                if (localStorage.getItem('users')) {
+                    
+                    var prevData = JSON.parse(localStorage.getItem('users'))
+                    prevData[prevData.length] = data
+                    localStorage.setItem('users', JSON.stringify(prevData))
 
-        } 
-        // this is when you have NO data... 
-        else {
+                } 
+                // this is when you have NO data... 
+                else {
 
-            var newData = []
-            newData[0] = data
-            localStorage.setItem('users', JSON.stringify(newData))
-            
+                    var newData = []
+                    newData[0] = data
+                    localStorage.setItem('users', JSON.stringify(newData))
+                    
+                }
+                //to set form to empty after each entry
+                setFirstName("")         
+                setLastName("")         
+                setEmail('')        
+                setDob('')        
+                setDescription('')
         }
-        //to set form to empty after each entry
-        setFirstName("")         
-        setLastName("")         
-        setEmail('')        
-        setDob('')        
-        setDescription('')
+        
     }
     //form of user details and save button that saves data and redirects to home 
     
@@ -88,19 +92,19 @@ const CreateForm = () => {
 
                     <Grid container>
                         <Grid item xs={12} md={6}>
-                            <TextField id="standard-basic" label="Firstname" style={{width: "90%"}} value={firstName} onChange={e => setFirstName(e.target.value)} />
+                            <TextField required id="standard-required" label="Firstname" style={{width: "90%"}} value={firstName} onChange={e => setFirstName(e.target.value)} />
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField id="standard-basic" label="Lastname" style={{width: "90%"}} value={lastName} onChange={e => setLastName(e.target.value)}/>
+                            <TextField required id="standard-required" label="Lastname" style={{width: "90%"}} value={lastName} onChange={e => setLastName(e.target.value)}/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField id="standard-basic" label="Email" style={{width: "90%"}} value={email} onChange={e => setEmail(e.target.value)}/>
+                            <TextField required id="standard-required" label="Email" style={{width: "90%"}} value={email} onChange={e => setEmail(e.target.value)}/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField id="date" type="date" className={classes.TextField} label="DOB" style={{width: "90%"}} value={dob} onChange={e=> setDob(e.target.value)}/>
+                            <TextField required id="date" type="date" className={classes.TextField} label="DOB" style={{width: "90%"}} value={dob} onChange={e=> setDob(e.target.value)}/>
                         </Grid>
                         <Grid item xs={12} md={12}>
-                            <TextField id="standard-basic" label="Description" style={{width: "90%"}} value={description} onChange={e=>setDescription(e.target.value)}/>    
+                            <TextField id="standard-required" label="Description" style={{width: "90%"}} value={description} onChange={e=>setDescription(e.target.value)}/>    
                         </Grid>
                     </Grid>
 

@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from '@material-ui/core'
+import { Button, Grid, MenuItem, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
@@ -63,7 +63,7 @@ const ViewForm = ()=> {
             {/* <Grid item md={1}> */}
               <div style={{width: "80%", margin: "20px auto"}}>
                 <Typography>
-                  <Link color="primary" variant="body2" to="/">Back</Link>
+                  <Link style={{textDecoration:'none'}}color="primary" variant="body2" to="/">Back</Link>
                 </Typography>
                 
               </div>
