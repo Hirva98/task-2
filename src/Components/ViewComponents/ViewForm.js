@@ -1,6 +1,6 @@
 import { Button, Grid, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,27 +9,17 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
-
-function createData(Firstname, Lastname, Email, DOB, Description) {
-  return { Firstname, Lastname, Email, DOB, Description };
-}
-
+//view component
 const ViewForm = ()=> {
  
     const history = useHistory()
-
-    const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('users')))
+    
+    const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('users'))) //to get data from localstorage
 
     const redirectToComponent= (url) => {
         history.push(url)
     }
-    console.log(userData)
+    //table of records and a link back to home page
     return(
         <div style={{marginTop: "100px"}}>
           
@@ -50,6 +40,7 @@ const ViewForm = ()=> {
                     </TableRow>
                   </TableHead>
                   <TableBody>
+                     {/* to display all records from cookie */}
 
                     {userData.map((user, key) => (
                       <TableRow key={key}>
@@ -71,12 +62,12 @@ const ViewForm = ()=> {
           {/* <Grid container> */}
             {/* <Grid item md={1}> */}
               <div style={{width: "80%", margin: "20px auto"}}>
-                <Button   className="my-btn" onClick={()=>{redirectToComponent('/')}}>
-                  Back
-                </Button>
+                <Typography>
+                  <Link color="primary" variant="body2" to="/">Back</Link>
+                </Typography>
+                
               </div>
             {/* </Grid> */}
-            
           {/* </Grid> */}
         </div>
     )

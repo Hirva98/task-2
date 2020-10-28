@@ -9,8 +9,8 @@ import ViewForm from './Components/ViewComponents/ViewForm';
 
 const App = () => {
 
-  const [name, setName] = useState('jash')
-
+  const [name, setName] = useState('hirva')
+/*routes to different components*/ 
   return(
     <div>
       <BrowserRouter>

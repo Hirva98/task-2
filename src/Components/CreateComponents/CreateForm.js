@@ -13,16 +13,11 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-
+//createcomponent
 const CreateForm = () => {
 
     const history = useHistory()
     const classes = useStyles();
-    var date= new Date();
-    var currentDate= date.getDate();
-    var month= date.getMonth()+1;
-    var year= date.getFullYear();
-    console.log(currentDate,month,year)
 
     const [firstName, setFirstName] = React.useState('')
     const [lastName, setLastName] = React.useState('')
@@ -30,12 +25,10 @@ const CreateForm = () => {
     const [dob, setDob] = React.useState()
     const [description, setDescription] = React.useState('')
 
-    const redirectToComponent= (url)=>{
-        history.push(url)
-    }
-
-    const submitData= ()=>{         
+    //saves data of form to cookies and redirect 
+    const submitDataandRedirect= (url)=>{         
         
+        history.push(url)
         var data = {
             firstName: firstName,
             lastName: lastName,
@@ -43,8 +36,6 @@ const CreateForm = () => {
             dob: dob,
             description: description
         }
-
-        console.log(data)
 
         // this is when you already have data... so you update your cookie
         if (localStorage.getItem('users')) {
@@ -60,16 +51,16 @@ const CreateForm = () => {
             var newData = []
             newData[0] = data
             localStorage.setItem('users', JSON.stringify(newData))
-            console.log(JSON.stringify(newData));
+            
         }
-        console.log(JSON.parse(localStorage.getItem('users')))
+        //to set form to empty after each entry
         setFirstName("")         
         setLastName("")         
         setEmail('')        
         setDob('')        
         setDescription('')
     }
-    
+    //form of user details and save button that saves data and redirects to home 
     
     return(
 
@@ -117,29 +108,15 @@ const CreateForm = () => {
                     </Grid>
                    
                 </Grid>
-            
+
            
             <Grid container>
                 <Grid item md={4}></Grid>
                 <Grid item md={1}>
-                    <Button variant="contained" size="small" className="my-savebtn" onClick={()=>submitData()}>Save</Button>
+                    <Button variant="contained" size="small" className="my-homebtn" onClick={()=>submitDataandRedirect('/')}>Save</Button>
                 </Grid>
                 <Grid item md={1}></Grid>
-                
-                
-                
-                <Grid item md={1}>
-                    <Button variant="contained" size="small" className="my-homebtn" onClick={()=>{redirectToComponent('/')}}>Home</Button>
-                </Grid>
-                <Grid item md={1}></Grid>
-                
-                <Grid item md={4}></Grid>
-
-            </Grid>
-                
-           
-           
-
+             </Grid>
             </form>
         </div>
        
