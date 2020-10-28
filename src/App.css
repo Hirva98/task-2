@@ -45,3 +45,16 @@
   background-color: #ffcc99 !important;
   
 }
+.title{
+  margin-left: 150px !important;
+}
+.my-savebtn{
+  width: 100% !important;
+  margin: 10px 0 !important;
+  background-color: #ccffcc !important;
+}
+.my-homebtn{
+  width: 100% !important;
+  margin: 10px 0 !important;
+  background-color: #99ccff !important;
+}

@@ -13,16 +13,16 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-// var data = {
-//     firstName: "value",
-//     lastName: "value",
-//     ....
-// }
 
 const CreateForm = () => {
 
     const history = useHistory()
     const classes = useStyles();
+    var date= new Date();
+    var currentDate= date.getDate();
+    var month= date.getMonth()+1;
+    var year= date.getFullYear();
+    console.log(currentDate,month,year)
 
     const [firstName, setFirstName] = React.useState('')
     const [lastName, setLastName] = React.useState('')
@@ -106,7 +106,7 @@ const CreateForm = () => {
                             <TextField id="standard-basic" label="Email" style={{width: "90%"}} value={email} onChange={e => setEmail(e.target.value)}/>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField type="date" id="standard-basic" label="DOB" style={{width: "90%"}} value={dob} onChange={e=> setDob(e.target.value)}/>
+                            <TextField id="date" type="date" className={classes.TextField} label="DOB" style={{width: "90%"}} value={dob} onChange={e=> setDob(e.target.value)}/>
                         </Grid>
                         <Grid item xs={12} md={12}>
                             <TextField id="standard-basic" label="Description" style={{width: "90%"}} value={description} onChange={e=>setDescription(e.target.value)}/>    
@@ -122,16 +122,18 @@ const CreateForm = () => {
             <Grid container>
                 <Grid item md={4}></Grid>
                 <Grid item md={1}>
-                    <Button variant="contained" size="small" className="my-main-btn" onClick={()=>submitData()}>Save</Button>
+                    <Button variant="contained" size="small" className="my-savebtn" onClick={()=>submitData()}>Save</Button>
                 </Grid>
                 <Grid item md={1}></Grid>
                 
-
+                
+                
                 <Grid item md={1}>
-                    <Button variant="contained" size="small" className="my-main-btn" onClick={()=>{redirectToComponent('/')}}>Home</Button>
+                    <Button variant="contained" size="small" className="my-homebtn" onClick={()=>{redirectToComponent('/')}}>Home</Button>
                 </Grid>
-
-                <Grid item md={5}></Grid>
+                <Grid item md={1}></Grid>
+                
+                <Grid item md={4}></Grid>
 
             </Grid>
                 

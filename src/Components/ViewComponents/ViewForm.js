@@ -1,4 +1,4 @@
-import { Button, Grid } from '@material-ui/core'
+import { Button, Grid, Typography } from '@material-ui/core'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,19 +31,22 @@ const ViewForm = ()=> {
     }
     console.log(userData)
     return(
-        <div style={{marginTop: "200px"}}>
+        <div style={{marginTop: "100px"}}>
           
           <Grid container>            
             <Grid item xs={12}>
+            <Typography variant="h4" component="h2" align="left" className="title">
+                        User Data
+                    </Typography>
               <TableContainer component={Paper} style={{width: "80%", margin: "auto"}}>
                 <Table aria-label="simple table">
-                  <TableHead>
+                  <TableHead >
                     <TableRow>
-                      <TableCell>Firstname</TableCell>
-                      <TableCell >Lastname</TableCell>
-                      <TableCell >Email</TableCell>
-                      <TableCell >DOB</TableCell>
-                      <TableCell >Description</TableCell>
+                      <TableCell style={{fontWeight: "bold"}}>Firstname</TableCell>
+                      <TableCell style={{fontWeight: "bold"}}>Lastname</TableCell>
+                      <TableCell style={{fontWeight: "bold"}}>Email</TableCell>
+                      <TableCell style={{fontWeight: "bold"}}>DOB</TableCell>
+                      <TableCell style={{fontWeight: "bold"}}>Description</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
